@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WorldBuilding.MainPage">
+
+    <StackLayout>
+        <Picker x:Name="Worlds"
+        Title="Worlds"
+        TitleColor="Red"
+        SelectedIndexChanged="OnPickerSelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>View</x:String>
+                    <x:String>Create</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Picker x:Name="Locations"
+        Title="Locations"
+        TitleColor="Blue"
+        SelectedIndexChanged="OnPickerSelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>View</x:String>
+                    <x:String>Create</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Picker x:Name="Characters"
+        Title="Characters"
+        TitleColor="Green"
+        SelectedIndexChanged="OnPickerSelectedIndexChanged">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>View</x:String>
+                    <x:String>Create</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+        <Picker x:Name="Lore"
+        Title="Lore"
+        TitleColor="Orange"
+        SelectedIndexChanged="OnPickerSelectedIndexChanged">
+
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>View</x:String>
+                    <x:String>Create</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+        </Picker>
+
+    </StackLayout>
+
+</ContentPage>
