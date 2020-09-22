@@ -4,9 +4,24 @@
              x:Class="WorldBuilding.CreateCharacter">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="Name"/>
+            <Entry Text="{Binding Name}" />
+            <Label Text="Description" />
+            <Entry Text="{Binding Description}" />
+            <Button Text="Create" Clicked="OnCreateClicked" />
+            
+            <ListView x:Name="listView" Margin="20">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Margin="20,0,0,0" Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                                <Label Text="{Binding Name}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  />
+                                <Label Text="{Binding WorldID}" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand"  />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
