@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace WorldBuilding
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Worlds : ContentPage
+    public partial class CreateLore : ContentPage
     {
-        public Worlds()
+        public CreateLore()
         {
             InitializeComponent();
         }

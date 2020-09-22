@@ -10,18 +10,22 @@ using Xamarin.Forms.Xaml;
 namespace WorldBuilding
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreateWorld : ContentPage
+    public partial class CreateLocation : ContentPage
     {
-        public CreateWorld()
+       public int id;
+
+        public CreateLocation(int id)
         {
+            this.id = id;
             InitializeComponent();
-            this.BindingContext = new Worlds();
+            this.BindingContext = new Locations();
         }
 
         async void OnSaveClicked(object sender, EventArgs args)
         {
-            var world = (Worlds)BindingContext;
-            await App.Database.SaveItemAsync(world);
+            var location = (Locations)BindingContext;
+            location.WorldID = id;
+            await App.Database.SaveItemAsync(location);
             await Navigation.PopAsync();
         }
     }

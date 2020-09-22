@@ -10,19 +10,17 @@ using Xamarin.Forms.Xaml;
 namespace WorldBuilding
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CreateWorld : ContentPage
+    public partial class ViewLocations : ContentPage
     {
-        public CreateWorld()
+        public ViewLocations()
         {
             InitializeComponent();
-            this.BindingContext = new Worlds();
         }
 
-        async void OnSaveClicked(object sender, EventArgs args)
+        protected override async void OnAppearing()
         {
-            var world = (Worlds)BindingContext;
-            await App.Database.SaveItemAsync(world);
-            await Navigation.PopAsync();
+            base.OnAppearing();
+            listView.ItemsSource = await App.Database.GetAllLocationsAsync();
         }
     }
 }

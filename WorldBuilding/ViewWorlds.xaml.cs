@@ -16,5 +16,23 @@ namespace WorldBuilding
         {
             InitializeComponent();
         }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            listView.ItemsSource = await App.Database.GetItemsAsync();
+        }
+
+       async void OnListItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                await Navigation.PushAsync(new World(e.SelectedItem as Worlds)
+                {
+                    BindingContext = e.SelectedItem as Worlds
+                });
+            }
+
+        }
     }
 }

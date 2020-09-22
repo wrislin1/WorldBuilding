@@ -3,25 +3,22 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
-using WorldBuilding;
+
 
 namespace WorldBuilding
 {
-    public class Worlds
+    public class Locations
     {
-        [PrimaryKey, AutoIncrement]
+        [PrimaryKey,AutoIncrement]
         public int ID { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-
         [OneToMany]
         public List<Characters> Population { get; set; }
 
-        [OneToMany]
-        public List<Lore> History { get; set; }
+        [ForeignKey(typeof(Worlds))]
+        public int WorldID { get; set; }
 
-        [OneToMany]
-        public List<Locations> Regions { get; set; }
 
     }
 }
